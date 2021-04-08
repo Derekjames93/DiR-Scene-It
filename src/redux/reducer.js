@@ -1,15 +1,37 @@
-import { ADD_MOVIE, DELETE_MOVIE } from "./action";
+import { ADD_MOVIE, DELETE_MOVIE, SET_LOADING , SET_DATA} from './action';
 
-const defaultState = {};
 
-export function movieReducer(state= defaultState, action){
-    switch(action.type){
+export function movieReducer(state= [], action) {
+    switch (action.type) {
         case ADD_MOVIE:
-            return {}
+            return [...state, action.movie]
+            
+
         case DELETE_MOVIE:
-            return {}
+            return state.filter((movie) => movie.imdbID !== action.imdbID);
         default:
             return state;
     }
+}
+// export function searchReducer(state = [], action){
+//     switch(action.type){
+        
 
+//         case SET_DATA:
+//             return action.payload.moviesArray
+        
+
+
+//         default:
+//             return state;
+//     }
+// }
+
+export function loadingReducer (state=false, action) {
+    switch(action.type) {
+        case SET_LOADING:
+            return action.value
+        default:
+            return state
+    }
 }

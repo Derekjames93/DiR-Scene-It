@@ -1,14 +1,25 @@
 export const ADD_MOVIE = 'ADD_MOVIE';
 export const DELETE_MOVIE = 'DELETE_MOVIE';
+export const SET_LOADING = "SET_LOADING";
 
-export function createAddMovie(){
+
+export function createAddMovie(movie) {
     return {
         type: ADD_MOVIE,
+        movie,
     }
 }
 
-export function createDeleteMovie(){
+export function createDeleteMovie(imdbID) {
     return {
         type: DELETE_MOVIE,
+        imdbID,
+    }
+}
+
+export function setLoading(value) {
+    return {
+        type: SET_LOADING,
+        value
     }
 }

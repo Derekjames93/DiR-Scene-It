@@ -1,10 +1,14 @@
-import { createStore } from "redux";
-import { movieReducer } from "./reducer";
+import { combineReducers, createStore } from "redux";
+import { loadingReducer, movieReducer } from './reducer'
 
+const rootReducer = combineReducers({
+    movies: movieReducer,
+    loading: loadingReducer
+})
 
 const store = createStore(
-    movieReducer,
+    rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+    );
 
-export default store;
+    export default store;
